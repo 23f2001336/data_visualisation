@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Employee Performance Report</title>
+</head>
+<body>
+<h1>Employee Performance Visualization</h1>
+
+<p><strong>Email:</strong> 23f2001336@ds.study.iitm.ac.in</p>
+<p><strong>R&amp;D Department Employee Count:</strong> 14</p>
+
+<h2>Department Distribution Histogram</h2>
+<img src="department_histogram.png" width="600" alt="Department distribution histogram">
+
+<h2>Python Code Used</h2>
+<pre>&quot;&quot;&quot;
+Employee Performance Visualization
+
+Author email (for verification): 23f2001336@ds.study.iitm.ac.in
+&quot;&quot;&quot;
+
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Load data
+df = pd.read_csv(&quot;employees.csv&quot;)
+
+# Calculate R&amp;D department count
+rd_count = (df[&quot;department&quot;] == &quot;R&amp;D&quot;).sum()
+print(&quot;Number of employees in R&amp;D department:&quot;, rd_count)
+
+# Create histogram using matplotlib
+plt.figure(figsize=(8, 5))
+df[&quot;department&quot;].value_counts().plot(kind=&quot;bar&quot;)
+plt.title(&quot;Department Distribution of Employees&quot;)
+plt.xlabel(&quot;Department&quot;)
+plt.ylabel(&quot;Employee Count&quot;)
+plt.tight_layout()
+plt.savefig(&quot;department_histogram.png&quot;, dpi=120)
+plt.close()
+
+print(&quot;Histogram saved as department_histogram.png&quot;)
+</pre>
+</body>
+</html>
